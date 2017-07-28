@@ -20,8 +20,8 @@ void setup(){
   Serial.begin(9600);
   Particle.function("forbackward", procFB);
   Particle.function("leftright", procLR);
-  wheels.attach(D0);          // initialize wheel servo to Digital IO Pin #8
-  esc.attach(D1);             // initialize ESC to Digital IO Pin #9
+  wheels.attach(D0);          // initialize wheel servo to Digital IO Pin D0
+  esc.attach(D1);             // initialize ESC to Digital IO Pin D1
   calibrateESC();
   delay(200);
 }
