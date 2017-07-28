@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html {
+        text-align: center;
+      }
+      .boxed {
+        border: 1px solid green ;
+        width: 60px;
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+        position: relative;
+      }
+      #parent {
+        margin: auto 50%;
+      }
+      #forward {
+        margin: 4px -33px;
+      }
+      #left {
+        margin: 0px -99px;
+      }
+      #back {
+        margin: -62px -33px;
+      }
+      #right {
+        margin: -62px 33px;
+      }
+    	</style>
+	</head>
+
+  <body>
+    <p>Basic Crawler Remote Control</p>
+
+    <div id="parent">
+      <div class="boxed" id="forward"> Forward </div>
+      <div class="boxed" id="left"> Left </div>
+      <div class="boxed" id="back"> Back </div>
+    	<div class="boxed" id="right"> Right </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <p>Tap the opposite direction to return to neutral</p>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+      var socket = io();
+      document.onkeydown = function(e) {
+          if(e.keyCode == 38) {
+          	document.getElementById("forward").style.border = "1px solid blue";
+            document.getElementById("forward").style.color = "blue";
+            socket.emit('command', 'forward');
+        	}
+          else if(e.keyCode == 37) {
+          	document.getElementById("left").style.border = "1px solid blue";
+            document.getElementById("left").style.color = "blue";
+            socket.emit('command', 'left');
+        	}
+          else if(e.keyCode == 40) {
+          	document.getElementById("back").style.border = "1px solid blue";
+            document.getElementById("back").style.color = "blue";
+            socket.emit('command', 'back');
+        	}
+          else if(e.keyCode == 39) {
+          	document.getElementById("right").style.border = "1px solid blue";
+            document.getElementById("right").style.color = "blue";
+            socket.emit('command', 'right');
+        	}
+      }
+      document.onkeyup = function(e) {
+          if(e.keyCode == 38) {
+          	document.getElementById("forward").style.border = "1px solid green";
+            document.getElementById("forward").style.color = "black";
+        	}
+          else if(e.keyCode == 37) {
+          	document.getElementById("left").style.border = "1px solid green";
+            document.getElementById("left").style.color = "black";
+        	}
+          else if(e.keyCode == 40) {
+          	document.getElementById("back").style.border = "1px solid green";
+            document.getElementById("back").style.color = "black";
+        	}
+          else if(e.keyCode == 39) {
+          	document.getElementById("right").style.border = "1px solid green";
+            document.getElementById("right").style.color = "black";
+        	}
+        }
+    </script>
+  </body>
+</html>

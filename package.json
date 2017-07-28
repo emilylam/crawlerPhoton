@@ -1,0 +1,42 @@
+{
+  "name": "remotecontrolcrawler",
+  "version": "1.0.0",
+  "description": "control the crawler remotely",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emilylam/tbd.git"
+  },
+  "engines": {
+    "node": "4.5.0"
+  },
+  "keywords": [
+    "remote",
+    "control",
+    "RC",
+    "Cars",
+    "particle",
+    "cloud",
+    "photon",
+    "nodejs"
+  ],
+  "author": "Emily Lam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emilylam/tbd/issues"
+  },
+  "homepage": "https://github.com/emilylam/tbd#readme",
+  "dependencies": {
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "keypress": "^0.2.1",
+    "mathjs": "^3.8.0",
+    "particle-api-js": "^6.4.0",
+    "request": "^2.79.0",
+    "socket.io": "^1.7.1"
+  }
+}
